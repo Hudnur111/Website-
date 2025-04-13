@@ -12,7 +12,7 @@ Dieses Repository enthält den Quellcode für meine persönliche Website, die vo
 
 - **Responsives Design**: Die Website passt sich verschiedenen Bildschirmgrößen an, um eine optimale Benutzererfahrung auf Desktop- und Mobilgeräten zu gewährleisten.
 - **Benutzerfreundliche Navigation**: Klare und intuitive Navigation, die es den Besuchern ermöglicht, schnell die gewünschten Informationen zu finden.
-- **Projektpräsentation**: Vorstellung meiner bisherigen Arbeiten und Projekte mit detaillierten Beschreibungen.
+- **Projektpräsentation**: Vorstellung meiner bisherigen Arbeiten und Projekte 
 
 ## Installation
 
