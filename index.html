@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Denny Svalina | Portfolio & Projekte</title>
+
+  <!-- Font Awesome für Social Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
   <style>
     body {
       margin: 0;
@@ -144,6 +148,25 @@
     ul {
       padding-left: 20px;
     }
+
+    /* Social Media Icons */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-icon {
+      font-size: 2rem;
+      color: #0077cc;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+      color: #00c3ff;
+      transform: scale(1.2);
+    }
   </style>
 </head>
 <body>
@@ -167,6 +190,18 @@
   <section id="start" class="tab-content active">
     <h2>Willkommen auf meiner Website!</h2>
     <p>Ich bin Denny Svalina – technikbegeistert, wissbegierig und engagiert. Auf dieser Website findest du einen Überblick über meine schulische Laufbahn, meine Projekte im Bereich Informatik und Medizin, sowie meine ehrenamtlichen Tätigkeiten. Mein Ziel: Wissen sinnvoll einsetzen und mit Herzblut weiterentwickeln.</p>
+
+    <div style="margin-top: 2rem;">
+      <h3>Folge mir auf Social Media:</h3>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/denny_svalin_2006?igsh=MW80ZTJ2dXVydHJ3ZQ%3D%3D&utm_source=qr" target="_blank" class="social-icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://github.com/hudnur111" target="_blank" class="social-icon">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- ÜBER MICH -->
