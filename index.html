@@ -1,311 +1,172 @@
-<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Denny Svalina | Portfolio & Projekte</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    header {
-      background: linear-gradient(135deg, #00c3ff, #0077cc);
-      color: white;
-      padding: 2.5rem 1rem;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    header h1 {
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      font-weight: 300;
-    }
-
-    .social-icons {
-      margin-top: 1rem;
-    }
-
-    .social-icons a {
-      display: inline-block;
-      margin: 0 10px;
-      color: white;
-      font-size: 1.5rem;
-      text-decoration: none;
-      transition: transform 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      transform: scale(1.2);
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background-color: #004466;
-    }
-
-    nav button {
-      background: none;
-      border: none;
-      color: white;
-      padding: 1rem 1.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    nav button:hover,
-    nav button.active-tab {
-      background-color: #002f44;
-    }
-
-    section.tab-content {
-      display: none;
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 0 18px rgba(0, 0, 0, 0.1);
-      animation: fadein 0.6s ease-in-out;
-    }
-
-    section.tab-content.active {
-      display: block;
-    }
-
-    @keyframes fadein {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h2 {
-      color: #005f99;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1rem;
-    }
-
-    .skillbar {
-      background: #eee;
-      border-radius: 25px;
-      overflow: hidden;
-      margin: 10px 0;
-      height: 25px;
-    }
-
-    .skillbar span {
-      display: block;
-      height: 100%;
-      background: linear-gradient(90deg, #00c3ff, #0077cc);
-      color: white;
-      text-align: right;
-      padding-right: 10px;
-      line-height: 25px;
-      font-size: 14px;
-      animation: grow 2s ease-in-out;
-    }
-
-    @keyframes grow {
-      from { width: 0; }
-    }
-
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background-color: #222;
-      color: white;
-    }
-
-    .footer-social a {
-      margin: 0 8px;
-      color: white;
-      font-size: 1.3rem;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: inherit;
-    }
-
-    button[type="submit"] {
-      background-color: #0077cc;
-      color: white;
-      padding: 0.8rem 1.2rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #005fa3;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-  </style>
-  <!-- Font Awesome für Social Media Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Denny Svalina | Portfolio &amp; Projekte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        @keyframes grow {
+            from { width: 0; }
+            to { width: var(--width); }
+        }
+    </style>
 </head>
-<body>
-
-  <header>
-    <h1>Denny Svalina</h1>
-    <p>Digitale Medien & Medizin | Schüler mit Zukunft</p>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/denny_svalin_2006" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://github.com/hudnur111" target="_blank"><i class="fab fa-github"></i></a>
-    </div>
-  </header>
-
-  <nav>
-    <button class="active-tab" onclick="openTab('start')">Start</button>
-    <button onclick="openTab('ueber')">Über mich</button>
-    <button onclick="openTab('schule')">Schule</button>
-    <button onclick="openTab('skills')">Fähigkeiten</button>
-    <button onclick="openTab('projekte')">Projekte</button>
-    <button onclick="openTab('politik')">Politik</button>
-    <button onclick="openTab('kontakt')">Kontakt</button>
-  </nav>
-
-  <!-- START -->
-  <section id="start" class="tab-content active">
-    <h2>Willkommen auf meiner Website!</h2>
-    <p>Ich bin Denny Svalina – technikbegeistert, wissbegierig und engagiert. Auf dieser Website findest du einen Überblick über meine schulische Laufbahn, meine Projekte im Bereich Informatik und Medizin, sowie meine ehrenamtlichen Tätigkeiten. Mein Ziel: Wissen sinnvoll einsetzen und mit Herzblut weiterentwickeln.</p>
-  </section>
-
-  <!-- ÜBER MICH -->
-  <section id="ueber" class="tab-content">
-    <h2>Über mich</h2>
-    <p><strong>Geboren:</strong> 21. Juni 2006</p>
-    <p>Ich interessiere mich seit Jahren leidenschaftlich für medizinische Themen, insbesondere Notfallmedizin und TCCC, ebenso wie für digitale Technologien, App-Entwicklung und Webdesign. Durch praktische Erfahrungen, Projekte und Fortbildungen konnte ich mein Wissen ständig erweitern und vertiefen.</p>
-    <p><strong>Sprachen:</strong></p>
-    <ul>
-      <li>Deutsch – fließend</li>
-      <li>Kroatisch – fließend</li>
-      <li>Englisch – fließend</li>
-      <li>Französisch – Grundkenntnisse</li>
-    </ul>
-  </section>
-
-  <!-- SCHULE -->
-  <section id="schule" class="tab-content">
-    <h2>Schullaufbahn & Bildung</h2>
-    <ul>
-      <li>2024–2025: BKP II – Pflege und Gesundheit (AVH)</li>
-      <li>2023–2024: BKP I – Pflege und Gesundheit (AVH)</li>
-      <li>2019–2023: Adalbert-Stifter-Realschule</li>
-      <li>2017–2019: Hans-Baldung-Gymnasium</li>
-      <li>2013–2017: Grundschule Stauferschule</li>
-    </ul>
-    <p><strong>Geplanter Abschluss:</strong> Fachhochschulreife (2025)</p>
-    <p><strong>Erreicht:</strong> Realschulabschluss (2024)</p>
-  </section>
-
-  <!-- FÄHIGKEITEN -->
-  <section id="skills" class="tab-content">
-    <h2>Fähigkeiten & Kompetenzen</h2>
-    <div class="skillbar"><span style="width:100%">Office 365 (100%)</span></div>
-    <div class="skillbar"><span style="width:95%">HTML (95%)</span></div>
-    <div class="skillbar"><span style="width:95%">CSS (95%)</span></div>
-    <div class="skillbar"><span style="width:90%">Grafikdesign (90%)</span></div>
-    <div class="skillbar"><span style="width:90%">3D-Druck (90%)</span></div>
-    <div class="skillbar"><span style="width:70%">Python (70%)</span></div>
-    <div class="skillbar"><span style="width:40%">Processing (40%)</span></div>
-    <p>Ich verbinde kreative Gestaltung mit technischem Know-how. Besonders gern arbeite ich an interaktiven Weblösungen oder medizinischen Tools zur Digitalisierung von Arbeitsprozessen.</p>
-
-    <h3>Weitere Einblicke & Ressourcen</h3>
-    <ul>
-      <li><strong>HTML:</strong> <a href="https://drive.google.com/file/d/1JyAyyNTOuQYWhyjmzf1C89mZ_4PL0CCk/view?usp=sharing" target="_blank">HTML-Anleitung (Teil 1)</a></li>
-      <li><strong>HTML:</strong> <a href="https://drive.google.com/file/d/1C3GaQfpAYAcwOrIv2H4AMNe2_K64dD8D/view?usp=sharing" target="_blank">HTML-Anleitung (Teil 2)</a></li>
-      <li><strong>3D-Druck:</strong> <a href="https://drive.google.com/file/d/1SHBfayy98IyDOfZ1phBl_DRRiXo9flGF/view?usp=sharing" target="_blank">Beispielprojekt 3D-Druck</a></li>
-    </ul>
-  </section>
-
-  <!-- PROJEKTE -->
-  <section id="projekte" class="tab-content">
-    <h2>Projekte & Veröffentlichungen</h2>
-    <ul>
-      <li><strong>Anamnese-App:</strong> <a href="https://hudnur111.github.io/Anamnese-App/" target="_blank">Hier testen</a></li>
-      <li><strong>Meine eigene Portfolio-Website:</strong> <a href="https://hudnur111.github.io/Website-/" target="_blank">Zur Seite</a></li>
-      <li><strong>GitHub-Profil mit weiteren Projekten:</strong> <a href="https://github.com/hudnur111" target="_blank">GitHub öffnen</a></li>
-    </ul>
-    <p>Die Projekte vereinen meine Interessen in Programmierung, Design und medizinischer Anwendung. Viele davon sind Open Source und ständig in Entwicklung.</p>
-  </section>
-
-  <!-- POLITIK -->
-  <section id="politik" class="tab-content">
-    <h2>Politisches Engagement</h2>
-    <ul>
-      <li><a href="https://jugendforum.wixsite.com/jugendforum-asr-gd/de" target="_blank"><strong>Jugendforum ASR GD</strong></a><br>
-      Ich war Mitglied des Jugendforums der ASR auf kommunaler Ebene sowie auf der Ostalb-Ebene. In dieser Funktion habe ich zahlreiche Schulprojekte geplant und an Planungen auf Kreisebene und kommunaler Ebene mitgewirkt.</li><br>
-
-      <li><a href="https://www.oedp-ostalb.de/startseite" target="_blank"><strong>ÖDP Ostalbkreis</strong></a><br>
-      Ich war mehrere Jahre in der ÖDP Ostalb tätig, wo wir uns auf die Kommunalebene konzentriert und gemeinsam mit anderen Parteien in Schwäbisch Gmünd zusammengearbeitet haben.</li>
-    </ul>
-  </section>
-
-  <!-- KONTAKT -->
-  <section id="kontakt" class="tab-content">
-    <h2>Kontakt</h2>
-    <p>Du möchtest mit mir in Kontakt treten? Schreib mir einfach eine Nachricht über das folgende Formular oder besuche meine digitale Visitenkarte:</p>
-    <p><a href="https://spreadly.app/p/4wbc1boylf" target="_blank">Meine digitale Visitenkarte ansehen</a></p>
-
-    <form action="mailto:deine@mailadresse.de" method="post" enctype="text/plain">
-      <label for="name">Dein Name:</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Deine E-Mail-Adresse:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="nachricht">Deine Nachricht:</label>
-      <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
-
-      <button type="submit">Absenden</button>
-    </form>
-  </section>
-
-  <footer>
-    &copy; 2025 Denny Svalina – Portfolio & Projekte<br>
-    <div class="footer-social">
-      <a href="https://www.instagram.com/denny_svalin_2006" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://github.com/hudnur111" target="_blank"><i class="fab fa-github"></i></a>
-    </div>
-  </footer>
-
-  <script>
-    function openTab(tabId) {
-      const tabs = document.querySelectorAll(".tab-content");
-      const buttons = document.querySelectorAll("nav button");
-      tabs.forEach(tab => tab.classList.remove("active"));
-      buttons.forEach(btn => btn.classList.remove("active-tab"));
-      document.getElementById(tabId).classList.add("active");
-      event.target.classList.add("active-tab");
-    }
-  </script>
-
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <header class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-center py-10 shadow-lg">
+        <h1 class="text-4xl font-bold mb-2">Denny Svalina</h1>
+        <p class="text-xl font-light">Digitale Medien &amp; Medizin | Schüler mit Zukunft</p>
+        <div class="mt-4">
+            <a class="mx-2 text-2xl" href="https://www.instagram.com/denny_svalin_2006" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a class="mx-2 text-2xl" href="https://github.com/hudnur111" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </header>
+    <nav class="bg-blue-800 text-white flex justify-center flex-wrap py-4 shadow-md">
+        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600 active-tab" onclick="openTab(event, 'start')">Start</button>
+        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'ueber')">Über mich</button>
+        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'schule')">Schule</button>
+        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'skills')">Fähigkeiten</button>
+        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'projekte')">Projekte</button>
+        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'politik')">Politik</button>
+        <button class="px-4 py-2 mx-2 hover:bg-blue-600 focus:bg-blue-600" onclick="openTab(event, 'kontakt')">Kontakt</button>
+    </nav>
+    <section class="tab-content active max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md" id="start">
+        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Willkommen auf meiner Website!</h2>
+        <p class="leading-relaxed">Ich bin Denny Svalina – technikbegeistert, wissbegierig und engagiert. Auf dieser Website findest du einen Überblick über meine schulische Laufbahn, meine Projekte im Bereich Informatik und Medizin, sowie meine ehrenamtlichen Tätigkeiten. Mein Ziel: Wissen sinnvoll einsetzen und mit Herzblut weiterentwickeln.</p>
+    </section>
+    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="ueber">
+        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Über mich</h2>
+        <p class="leading-relaxed"><strong>Geboren:</strong> 21. Juni 2006</p>
+        <p class="leading-relaxed">Ich interessiere mich seit Jahren leidenschaftlich für medizinische Themen, insbesondere Notfallmedizin und TCCC, ebenso wie für digitale Technologien, App-Entwicklung und Webdesign. Durch praktische Erfahrungen, Projekte und Fortbildungen konnte ich mein Wissen ständig erweitern und vertiefen.</p>
+        <p class="leading-relaxed"><strong>Sprachen:</strong></p>
+        <ul class="list-disc pl-5">
+            <li>Deutsch – fließend</li>
+            <li>Kroatisch – fließend</li>
+            <li>Englisch – fließend</li>
+            <li>Französisch – Grundkenntnisse</li>
+        </ul>
+    </section>
+    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="schule">
+        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Schullaufbahn &amp; Bildung</h2>
+        <ul class="list-disc pl-5">
+            <li>2024–2025: BKP II – Pflege und Gesundheit (AVH)</li>
+            <li>2023–2024: BKP I – Pflege und Gesundheit (AVH)</li>
+            <li>2019–2023: Adalbert-Stifter-Realschule</li>
+            <li>2017–2019: Hans-Baldung-Gymnasium</li>
+            <li>2013–2017: Grundschule Stauferschule</li>
+        </ul>
+        <p class="leading-relaxed"><strong>Geplanter Abschluss:</strong> Fachhochschulreife (2025)</p>
+        <p class="leading-relaxed"><strong>Erreicht:</strong> Realschulabschluss (2024)</p>
+    </section>
+    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="skills">
+        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Fähigkeiten &amp; Kompetenzen</h2>
+        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
+            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 100%; animation: grow 2s ease-in-out forwards;">Office 365 (100%)</div>
+        </div>
+        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
+            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 95%; animation: grow 2s ease-in-out forwards;">HTML (95%)</div>
+        </div>
+        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
+            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 95%; animation: grow 2s ease-in-out forwards;">CSS (95%)</div>
+        </div>
+        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
+            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 90%; animation: grow 2s ease-in-out forwards;">Grafikdesign (90%)</div>
+        </div>
+        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
+            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 90%; animation: grow 2s ease-in-out forwards;">3D-Druck (90%)</div>
+        </div>
+        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
+            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 70%; animation: grow 2s ease-in-out forwards;">Python (70%)</div>
+        </div>
+        <div class="skillbar bg-gray-200 rounded-full overflow-hidden mb-4">
+            <div class="bg-gradient-to-r from-blue-400 to-blue-700 text-white text-right pr-2 py-1" style="--width: 40%; animation: grow 2s ease-in-out forwards;">Processing (40%)</div>
+        </div>
+        <p class="leading-relaxed">Ich verbinde kreative Gestaltung mit technischem Know-how. Besonders gern arbeite ich an interaktiven Weblösungen oder medizinischen Tools zur Digitalisierung von Arbeitsprozessen.</p>
+        <h3 class="text-xl font-semibold text-blue-700 mt-6">Weitere Einblicke &amp; Ressourcen</h3>
+        <ul class="list-disc pl-5">
+            <li><strong>HTML:</strong> <a class="text-blue-600 hover:underline" href="https://drive.google.com/file/d/1JyAyyNTOuQYWhyjmzf1C89mZ_4PL0CCk/view?usp=sharing" target="_blank">HTML-Anleitung (Teil 1)</a></li>
+            <li><strong>HTML:</strong> <a class="text-blue-600 hover:underline" href="https://drive.google.com/file/d/1C3GaQfpAYAcwOrIv2H4AMNe2_K64dD8D/view?usp=sharing" target="_blank">HTML-Anleitung (Teil 2)</a></li>
+            <li><strong>3D-Druck:</strong> <a class="text-blue-600 hover:underline" href="https://drive.google.com/file/d/1SHBfayy98IyDOfZ1phBl_DRRiXo9flGF/view?usp=sharing" target="_blank">Beispielprojekt 3D-Druck</a></li>
+        </ul>
+    </section>
+    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="projekte">
+        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Projekte &amp; Veröffentlichungen</h2>
+        <ul class="list-disc pl-5">
+            <li><strong>Game LSS:</strong> <a class="text-blue-600 hover:underline" href="https://github.com/Hudnur111/Leitstellenspiel-Verkehrs--und-Wetterdaten-Dashboard" target="_blank">Leitstellenspiel Verkehrs- und Wetterdaten Dashboard</a></li>
+            <li><strong>Game LSS:</strong> <a class="text-blue-600 hover:underline" href="https://github.com/Hudnur111/-Leitstellenspiel-Ausr-cke-Verz-gerung-der-Fahrzeuge.user.js" target="_blank">Leitstellenspiel Ausrücke-Verzögerung der Fahrzeuge</a></li>
+            <li><strong>Add Blocker Browser:</strong> <a class="text-blue-600 hover:underline" href="https://github.com/Hudnur111/CleanBrowse.user.js" target="_blank">CleanBrowse</a></li>
+            <li><strong>Medizin:</strong> <a class="text-blue-600 hover:underline" href="https://github.com/Hudnur111/Anamnese-App" target="_blank">Anamnese-App</a></li>
+        </ul>
+        <p class="leading-relaxed">Die Projekte vereinen meine Interessen in Programmierung, Design und medizinischer Anwendung. Viele davon sind Open Source und ständig in Entwicklung.</p>
+    </section>
+    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="politik">
+        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Politisches Engagement</h2>
+        <ul class="list-disc pl-5">
+            <li>
+                <a class="text-blue-600 hover:underline" href="https://jugendforum.wixsite.com/jugendforum-asr-gd/de" target="_blank"><strong>Jugendforum ASR GD</strong></a>
+                <br/>Ich war Mitglied des Jugendforums der ASR auf kommunaler Ebene sowie auf der Ostalb-Ebene. In dieser Funktion habe ich zahlreiche Schulprojekte geplant und an Planungen auf Kreisebene und kommunaler Ebene mitgewirkt.
+            </li>
+            <br/>
+            <li>
+                <a class="text-blue-600 hover:underline" href="https://www.oedp-ostalb.de/startseite" target="_blank"><strong>ÖDP Ostalbkreis</strong></a>
+                <br/>Ich war mehrere Jahre in der ÖDP Ostalb tätig, wo wir uns auf die Kommunalebene konzentriert und gemeinsam mit anderen Parteien in Schwäbisch Gmünd zusammengearbeitet haben.
+            </li>
+        </ul>
+    </section>
+    <section class="tab-content max-w-4xl mx-auto my-8 p-6 bg-white rounded-lg shadow-md hidden" id="kontakt">
+        <h2 class="text-2xl font-semibold text-blue-700 border-b-2 border-gray-300 pb-2 mb-4">Kontakt</h2>
+        <p class="leading-relaxed">Du möchtest mit mir in Kontakt treten? Schreib mir einfach eine Nachricht über das folgende Formular oder besuche meine digitale Visitenkarte:</p>
+        <p><a class="text-blue-600 hover:underline" href="https://spreadly.app/p/4wbc1boylf" target="_blank">Meine digitale Visitenkarte ansehen</a></p>
+        <div class="flex flex-col md:flex-row">
+            <div class="md:w-1/2">
+                <form action="mailto:deine@mailadresse.de" class="mt-4" enctype="text/plain" method="post">
+                    <label class="block text-gray-700" for="name">Dein Name:</label>
+                    <input class="w-full p-2 border border-gray-300 rounded mb-4" id="name" name="name" required="" type="text"/>
+                    <label class="block text-gray-700" for="email">Deine E-Mail-Adresse:</label>
+                    <input class="w-full p-2 border border-gray-300 rounded mb-4" id="email" name="email" required="" type="email"/>
+                    <label class="block text-gray-700" for="nachricht">Deine Nachricht:</label>
+                    <textarea class="w-full p-2 border border-gray-300 rounded mb-4" id="nachricht" name="nachricht" required="" rows="5"></textarea>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">Absenden</button>
+                </form>
+            </div>
+            <div class="md:w-1/2 md:pl-4 mt-8 md:mt-0">
+                <h3 class="text-xl font-semibold text-blue-700 mb-4">Kontaktinformationen</h3>
+                <ul class="list-none">
+                    <li class="mb-2"><i class="fas fa-phone-alt text-blue-600 mr-2"></i> +49 152 03721539</li>
+                    <li class="mb-2"><i class="fas fa-envelope text-blue-600 mr-2"></i> denny.svalin2@gmail.com</li>
+                    <li class="mb-2"><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i> Schwäbisch Gmünd, Deutschland</li>
+                </ul>
+                <div class="mt-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d84132.06626204733!2d9.746250993018723!3d48.77946428126707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799080b4400e09d%3A0x41ffd3c8d096fd0!2zU2Nod8OkYmlzY2ggR23DvG5k!5e0!3m2!1sde!2sde!4v1744792468618!5m2!1sde!2sde" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="text-center py-6 bg-gray-800 text-white mt-8">
+        © 2025 Denny Svalina – Portfolio &amp; Projekte
+        <br/>
+        <div class="mt-4">
+            <a class="mx-2 text-2xl" href="https://www.instagram.com/denny_svalin_2006" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a class="mx-2 text-2xl" href="https://github.com/hudnur111" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </footer>
+    <script>
+        function openTab(event, tabId) {
+            const tabs = document.querySelectorAll(".tab-content");
+            const buttons = document.querySelectorAll("nav button");
+            tabs.forEach(tab => tab.classList.add("hidden"));
+            buttons.forEach(btn => btn.classList.remove("active-tab"));
+            document.getElementById(tabId).classList.remove("hidden");
+            event.target.classList.add("active-tab");
+        }
+    </script>
 </body>
 </html>
